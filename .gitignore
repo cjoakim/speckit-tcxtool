@@ -24,7 +24,7 @@
 **/github_data
 **/include/
 **/intellij/
-**/lib/
+#**/lib/
 **/lib64/
 **/log/
 **/man/
@@ -58,7 +58,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
