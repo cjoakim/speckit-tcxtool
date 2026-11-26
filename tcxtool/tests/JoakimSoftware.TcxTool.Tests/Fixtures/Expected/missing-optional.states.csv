@@ -1,0 +1,4 @@
+ActivityId|ActivityDistanceMiles|ActivityElapsedTime|ActivityElapsedSeconds|State|StateEndDate|StateEndTrackpointNum|StateTrackpointCount|StateElapsedSeconds|StateDistanceMiles|AverageHeartRateBpm|AverageRunCadence|AverageLatitude|AverageLongitude|AverageAltitudeMeters|AverageAltitudeFeet
+missing-optional|0.0018641135767120019|00:00:02|2|running|2026-11-01T06:00:02.000Z|4|4|2|0.0018641135767120019|91.66666666666667|163|3.1500000000000004|4.15|10.75|35.26902887139108
+missing-optional|0.0024854847689493357|00:00:03|3|unknown|2026-11-01T06:00:03.000Z|5|1|1|0.0006213711922373338|94||3.5|4.5|12|39.37007874015748
+missing-optional|0.004349598345661338|00:00:06|6|running|2026-11-01T06:00:06.000Z|8|3|3|0.001864113576712002|96|172|3.7000000000000006|4.7|13|42.650918635170605

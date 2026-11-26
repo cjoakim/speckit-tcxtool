@@ -1,0 +1,36 @@
+@*
+    Every trackpoint of the current CSV (specs/005-table-page/contracts/pages.md "Table").
+    One loop writes the rows inline, with no component per row, and this component has no scoped CSS:
+    a scoped attribute on about 220,000 elements would add megabytes for nothing (research R4, R5).
+    A null band class leaves the class attribute out (spec FR-016).
+*@
+<div class="table-responsive trackpoint-table-scroll">
+    <table class="table table-sm table-bordered small mb-0" id="trackpoints">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">TrackpointNum</th>
+                <th scope="col">Time</th>
+                <th scope="col">ElapsedSeconds</th>
+                <th scope="col">ElapsedTime</th>
+                <th scope="col">HeartRateBpm</th>
+                <th scope="col">RunCadence</th>
+                <th scope="col">DistanceMiles</th>
+                <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">AltitudeFeet</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in Rows)
+            {
+                <tr><td>@row.TrackpointNum</td><td>@row.Time</td><td>@row.ElapsedSeconds</td><td>@row.ElapsedTime</td><td class="@TrackpointBands.HeartRateClass(row.HeartRateBpm)">@row.HeartRateBpm</td><td class="@TrackpointBands.RunCadenceClass(row.RunCadence)">@row.RunCadence</td><td>@row.DistanceMiles</td><td>@row.Latitude</td><td>@row.Longitude</td><td>@row.AltitudeFeet</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    /// <summary>The rows, in file order.</summary>
+    [Parameter, EditorRequired]
+    public IReadOnlyList<ActivityCsvRow> Rows { get; set; } = default!;
+}

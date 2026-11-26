@@ -1,0 +1,42 @@
+@page "/table"
+
+<PageTitle>Table</PageTitle>
+
+<h1 class="h3 mb-3">Table</h1>
+
+@if (Current is { } current)
+{
+    switch (current.Status)
+    {
+        case CurrentActivityStatus.NoCurrentCsv:
+            <div class="alert alert-info" id="table-status" role="status">
+                <p class="mb-0">@Message(current.Status) <a href="">Select a CSV file</a> or <a href="convert">convert a TCX file</a>.</p>
+            </div>
+            break;
+        case CurrentActivityStatus.Missing:
+            <div class="alert alert-warning" id="table-status" role="alert">
+                <p class="mb-0">@Message(current.Status) <strong>@current.FileName</strong>. <a href="">Select another CSV file</a>.</p>
+            </div>
+            break;
+        case CurrentActivityStatus.Unreadable:
+            <div class="alert alert-warning" id="table-status" role="alert">
+                <p class="mb-0">@Message(current.Status) <strong>@current.FileName</strong>.</p>
+            </div>
+            break;
+        case CurrentActivityStatus.WrongFormat:
+            <div class="alert alert-warning" id="table-status" role="alert">
+                <p class="mb-0">@Message(current.Status) <strong>@current.FileName</strong>. <a href="convert">Convert its TCX file again</a>.</p>
+            </div>
+            break;
+        case CurrentActivityStatus.NoTrackpoints:
+            <ActivitySummaryCard Summary="current.Summary!" />
+            <div class="alert alert-info" id="table-status" role="status">
+                <p class="mb-0">@Message(current.Status)</p>
+            </div>
+            break;
+        case CurrentActivityStatus.Loaded:
+            <ActivitySummaryCard Summary="current.Summary!" />
+            <TrackpointTable Rows="current.Rows" />
+            break;
+    }
+}

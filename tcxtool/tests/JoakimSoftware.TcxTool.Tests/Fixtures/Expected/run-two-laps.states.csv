@@ -1,0 +1,2 @@
+ActivityId|ActivityDistanceMiles|ActivityElapsedTime|ActivityElapsedSeconds|State|StateEndDate|StateEndTrackpointNum|StateTrackpointCount|StateElapsedSeconds|StateDistanceMiles|AverageHeartRateBpm|AverageRunCadence|AverageLatitude|AverageLongitude|AverageAltitudeMeters|AverageAltitudeFeet
+run-two-laps|6.2137119223733395|01:02:05|3725|walking|2026-11-01T13:06:12.000Z|10|10|3725|6.2137119223733395|87.5|127|10.000462345678901|-20.000548765432104|103.52000045776367|339.6325474336078

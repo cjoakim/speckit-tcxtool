@@ -1,0 +1,22 @@
+@page "/convert"
+
+<PageTitle>Convert TCX to CSV</PageTitle>
+
+<h1 class="h3 mb-3">Convert TCX to CSV</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form method="post" action="convert" enctype="multipart/form-data" @formname="@FormName" @onsubmit="OnSubmit">
+            <AntiforgeryToken />
+            <div class="mb-3">
+                <label class="form-label" for="tcx-file">Garmin TCX file</label>
+                <input type="file" class="form-control" id="tcx-file" name="TcxFile" accept=".tcx" />
+                <div class="form-text">Maximum file size: @LimitText</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Convert</button>
+        </form>
+    </div>
+</div>
+
+<ConversionResultView Result="Result" />
+<CurrentCsvNotice Result="Recorded" />

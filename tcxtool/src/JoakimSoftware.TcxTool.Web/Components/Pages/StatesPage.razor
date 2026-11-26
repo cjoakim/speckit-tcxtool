@@ -1,0 +1,20 @@
+@page "/states"
+
+<PageTitle>States</PageTitle>
+
+<h1 class="h3 mb-3">States</h1>
+
+@if (Current is { } current)
+{
+    @if (current.Status is CurrentStatesStatus.NoStateSets or CurrentStatesStatus.Loaded)
+    {
+        <p class="mb-2" id="states-file">States CSV: <strong>@current.StatesFileName</strong></p>
+    }
+
+    <StatesNotice Current="current" StatusId="states-status" />
+
+    @if (current.Status == CurrentStatesStatus.Loaded)
+    {
+        <StatesTable Rows="current.Rows" />
+    }
+}

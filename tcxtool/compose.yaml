@@ -1,0 +1,19 @@
+# Runs JoakimSoftware.TcxTool from the Dockerfile's runtime stage.
+# Host port defaults to 8080; override with TCXTOOL_HOST_PORT (e.g. TCXTOOL_HOST_PORT=8081).
+services:
+  app:
+    build:
+      context: .
+      target: runtime
+    image: joakimsoftware/tcxtool:dev
+    ports:
+      - "${TCXTOOL_HOST_PORT:-8080}:8080"
+    environment:
+      TcxTool__CsvOutputDirectory: /data/csv
+      # /app is not writable by the image's non-root user, so the current-CSV state (feature 004)
+      # lives in /tmp. It is lost when the container is removed; the app runs mainly on the host.
+      TcxTool__StateFilePath: /tmp/tcxtool/tcxtool-state.json
+    # CSVs are written by the image's non-root user straight to the host's data/csv
+    # (git-ignored; they contain real GPS positions). Docker Desktop maps file ownership.
+    volumes:
+      - ./data/csv:/data/csv

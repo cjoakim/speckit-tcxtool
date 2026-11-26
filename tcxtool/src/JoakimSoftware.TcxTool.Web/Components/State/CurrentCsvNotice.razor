@@ -1,0 +1,16 @@
+@if (Result is { IsRecorded: true } recorded)
+{
+    <p role="status" class="mt-3 mb-0">Current CSV: <strong>@recorded.FileName</strong></p>
+}
+else if (Result is { } failed)
+{
+    <div role="alert" class="alert alert-warning mt-3">
+        <p class="mb-0">@CsvSelectionMessages.For(failed.Outcome)</p>
+    </div>
+}
+
+@code {
+    /// <summary>The result of recording a current CSV, or null when nothing was attempted.</summary>
+    [Parameter]
+    public CsvSelectionResult? Result { get; set; }
+}

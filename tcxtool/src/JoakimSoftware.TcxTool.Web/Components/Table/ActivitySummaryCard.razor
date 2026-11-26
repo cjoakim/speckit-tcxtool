@@ -1,0 +1,37 @@
+@* The Table page's header box (specs/005-table-page/contracts/pages.md "Header box"). *@
+<div class="card mb-3">
+    <div class="card-body" id="activity-summary">
+        <h2 class="card-title h5">Activity</h2>
+        <dl class="row mb-0">
+            @foreach (var (label, value) in Values)
+            {
+                <dt class="col-sm-3">@label</dt>
+                @* An empty value is a muted dash, so its label never stands alone (spec FR-010). *@
+                <dd class="col-sm-9">@if (value.Length == 0)
+                    {
+                        <span class="text-muted">—</span>
+                    }
+                    else
+                    {
+                        @value
+                    }</dd>
+            }
+        </dl>
+    </div>
+</div>
+
+@code {
+    /// <summary>The values to show.</summary>
+    [Parameter, EditorRequired]
+    public ActivitySummary Summary { get; set; } = default!;
+
+    private (string Label, string Value)[] Values =>
+    [
+        ("CSV file", Summary.FileName),
+        ("ActivityId", Summary.ActivityId),
+        ("Date", Summary.Date),
+        ("DeviceName", Summary.DeviceName),
+        ("DeviceId", Summary.DeviceId),
+        ("Sport", Summary.Sport),
+    ];
+}

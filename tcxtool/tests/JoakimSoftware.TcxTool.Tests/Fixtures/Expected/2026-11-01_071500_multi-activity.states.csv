@@ -1,0 +1,2 @@
+ActivityId|ActivityDistanceMiles|ActivityElapsedTime|ActivityElapsedSeconds|State|StateEndDate|StateEndTrackpointNum|StateTrackpointCount|StateElapsedSeconds|StateDistanceMiles|AverageHeartRateBpm|AverageRunCadence|AverageLatitude|AverageLongitude|AverageAltitudeMeters|AverageAltitudeFeet
+multi-activity|0.0012427423844746678|00:00:02|2|running|2026-11-01T07:15:02.000Z|3|3|2|0.0012427423844746678|91|160|1.11|2.11|51|167.3228346456693

@@ -1,0 +1,46 @@
+@using System.Text.Json
+@*
+    The Timeline's legend, its <tcx-timeline> element with the bar and chart containers, and the
+    no-script note
+    (specs/007-timeline-page/contracts/pages.md "Timeline view"). The layout travels as JSON in an
+    attribute, which Blazor encodes (research.md R7). wwwroot/js/timeline.js draws into the
+    server-rendered containers (research.md R8, R10).
+*@
+<section id="timeline" aria-label="Timeline">
+    <ul class="list-inline small mb-2" id="timeline-legend">
+        @foreach (var state in LegendStates)
+        {
+            <li class="list-inline-item"><span class="timeline-swatch state-@state"></span> @state</li>
+        }
+    </ul>
+    <tcx-timeline data-timeline="@Json">
+        <div class="timeline-bar"></div>
+        @for (var i = 0; i < Layout.Charts.Count; i++)
+        {
+            var chart = Layout.Charts[i];
+            <h2 class="h6 mt-3 mb-1">@chart.Label</h2>
+            @if (chart.Points.Count > 0)
+            {
+                <div class="timeline-chart" data-chart="@i"></div>
+            }
+            else
+            {
+                <p class="text-muted small timeline-no-data">No data.</p>
+            }
+        }
+    </tcx-timeline>
+    <noscript><div class="alert alert-secondary mt-2" id="timeline-noscript">The timeline and charts need JavaScript.</div></noscript>
+</section>
+
+@code {
+    private static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
+
+    private static readonly string[] LegendStates =
+        [ActivityState.Stopped, ActivityState.Walking, ActivityState.Running, ActivityState.Unknown];
+
+    /// <summary>The drawing, from <see cref="TimelineLayout.From"/>.</summary>
+    [Parameter, EditorRequired]
+    public TimelineLayout Layout { get; set; } = default!;
+
+    private string Json => JsonSerializer.Serialize(Layout, JsonOptions);
+}

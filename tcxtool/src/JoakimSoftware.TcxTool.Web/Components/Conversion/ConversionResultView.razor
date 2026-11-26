@@ -1,0 +1,43 @@
+@if (Result is { IsSuccess: true } success)
+{
+    <section role="status" class="alert alert-success mt-3">
+        <ul class="mb-0">
+            @foreach (var file in success.Files)
+            {
+                @if (file.RowCount == 0)
+                {
+                    <li>@file.FileName: contains no trackpoints</li>
+                }
+                else
+                {
+                    <li>@file.FileName: @file.RowCount rows</li>
+                }
+                @switch (file.StateSetCount)
+                {
+                    case 0:
+                        <li>@file.StatesFileName: contains no StateSets</li>
+                        break;
+                    case 1:
+                        <li>@file.StatesFileName: 1 StateSet</li>
+                        break;
+                    default:
+                        <li>@file.StatesFileName: @file.StateSetCount StateSets</li>
+                        break;
+                }
+            }
+        </ul>
+    </section>
+}
+
+else if (Result is { Error: { } error })
+{
+    <section role="alert" class="alert alert-danger mt-3">
+        <p class="mb-0">@error.Message</p>
+    </section>
+}
+
+@code {
+    /// <summary>The conversion result to show, or null before any upload.</summary>
+    [Parameter]
+    public ConversionResult? Result { get; set; }
+}

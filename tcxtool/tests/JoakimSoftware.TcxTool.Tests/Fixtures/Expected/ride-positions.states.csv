@@ -1,0 +1,2 @@
+ActivityId|ActivityDistanceMiles|ActivityElapsedTime|ActivityElapsedSeconds|State|StateEndDate|StateEndTrackpointNum|StateTrackpointCount|StateElapsedSeconds|StateDistanceMiles|AverageHeartRateBpm|AverageRunCadence|AverageLatitude|AverageLongitude|AverageAltitudeMeters|AverageAltitudeFeet
+ride-positions|0.013204137835043346|00:00:03|3|unknown|2026-10-15T08:00:03Z|4|4|3|0.013204137835043346|111.5||-33.86015|151.21015|22|72.1784776902887

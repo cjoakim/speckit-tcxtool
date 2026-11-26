@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+  xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+  xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Activities>
+    <Activity Sport="Running">
+      <Id>2026-11-01T07:15:00.000Z</Id>
+      <Lap StartTime="2026-11-01T07:15:00.000Z">
+        <TotalTimeSeconds>10.0</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <Calories>12</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2026-11-01T07:15:00.000Z</Time>
+            <Position>
+              <LatitudeDegrees>1.10</LatitudeDegrees>
+              <LongitudeDegrees>2.10</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>50.0</AltitudeMeters>
+            <DistanceMeters>0.0</DistanceMeters>
+            <HeartRateBpm>
+              <Value>90</Value>
+            </HeartRateBpm>
+            <Extensions>
+              <ns3:TPX>
+                <ns3:RunCadence>80</ns3:RunCadence>
+              </ns3:TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2026-11-01T07:15:01.000Z</Time>
+            <Position>
+              <LatitudeDegrees>1.11</LatitudeDegrees>
+              <LongitudeDegrees>2.11</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>51.0</AltitudeMeters>
+            <DistanceMeters>1.0</DistanceMeters>
+            <HeartRateBpm>
+              <Value>91</Value>
+            </HeartRateBpm>
+            <Extensions>
+              <ns3:TPX>
+                <ns3:RunCadence>80</ns3:RunCadence>
+              </ns3:TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2026-11-01T07:15:02.000Z</Time>
+            <Position>
+              <LatitudeDegrees>1.12</LatitudeDegrees>
+              <LongitudeDegrees>2.12</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>52.0</AltitudeMeters>
+            <DistanceMeters>2.0</DistanceMeters>
+            <HeartRateBpm>
+              <Value>92</Value>
+            </HeartRateBpm>
+            <Extensions>
+              <ns3:TPX>
+                <ns3:RunCadence>80</ns3:RunCadence>
+              </ns3:TPX>
+            </Extensions>
+          </Trackpoint>
+        </Track>
+      </Lap>
+      <Creator xsi:type="Device_t">
+        <Name>Forerunner 999</Name>
+        <UnitId>77</UnitId>
+        <ProductID>9999</ProductID>
+      </Creator>
+    </Activity>
+    <Activity Sport="Running">
+      <Id>2026-11-01T18:30:05.000Z</Id>
+      <Lap StartTime="2026-11-01T18:30:05.000Z">
+        <TotalTimeSeconds>10.0</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <Calories>12</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2026-11-01T18:30:05.000Z</Time>
+            <Position>
+              <LatitudeDegrees>1.20</LatitudeDegrees>
+              <LongitudeDegrees>2.20</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>50.0</AltitudeMeters>
+            <DistanceMeters>0.0</DistanceMeters>
+            <HeartRateBpm>
+              <Value>90</Value>
+            </HeartRateBpm>
+            <Extensions>
+              <ns3:TPX>
+                <ns3:RunCadence>80</ns3:RunCadence>
+              </ns3:TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2026-11-01T18:30:06.000Z</Time>
+            <Position>
+              <LatitudeDegrees>1.21</LatitudeDegrees>
+              <LongitudeDegrees>2.21</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>51.0</AltitudeMeters>
+            <DistanceMeters>1.0</DistanceMeters>
+            <HeartRateBpm>
+              <Value>91</Value>
+            </HeartRateBpm>
+            <Extensions>
+              <ns3:TPX>
+                <ns3:RunCadence>80</ns3:RunCadence>
+              </ns3:TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2026-11-01T18:30:07.000Z</Time>
+            <Position>
+              <LatitudeDegrees>1.22</LatitudeDegrees>
+              <LongitudeDegrees>2.22</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>52.0</AltitudeMeters>
+            <DistanceMeters>2.0</DistanceMeters>
+            <HeartRateBpm>
+              <Value>92</Value>
+            </HeartRateBpm>
+            <Extensions>
+              <ns3:TPX>
+                <ns3:RunCadence>80</ns3:RunCadence>
+              </ns3:TPX>
+            </Extensions>
+          </Trackpoint>
+        </Track>
+      </Lap>
+      <Creator xsi:type="Device_t">
+        <Name>Forerunner 999</Name>
+        <UnitId>77</UnitId>
+        <ProductID>9999</ProductID>
+      </Creator>
+    </Activity>
+  </Activities>
+  <Author xsi:type="Application_t">
+    <Name>Synthetic fixture</Name>
+  </Author>
+</TrainingCenterDatabase>

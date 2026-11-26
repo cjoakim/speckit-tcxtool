@@ -1,0 +1,23 @@
+# Test gate overlay (constitution Principle VII). Run from tcxtool/:
+#
+#   docker compose -f compose.yaml -f compose.test.yaml up \
+#     --build --abort-on-container-exit --exit-code-from tests
+#
+# Tests run inside the SDK build stage with no network, and do not wait on the app's health.
+services:
+  tests:
+    build:
+      context: .
+      target: build
+    working_dir: /src
+    command: ["dotnet", "test", "JoakimSoftware.TcxTool.slnx", "--no-restore"]
+    network_mode: none
+    environment:
+      DOTNET_NOLOGO: "1"
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+      DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE: "1"
+    volumes:
+      - type: bind
+        source: ./tests/JoakimSoftware.TcxTool.Tests/Fixtures
+        target: /src/tests/JoakimSoftware.TcxTool.Tests/Fixtures
+        read_only: true

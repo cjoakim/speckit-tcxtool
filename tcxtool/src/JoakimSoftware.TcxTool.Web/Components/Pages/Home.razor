@@ -1,0 +1,66 @@
+@page "/"
+
+<PageTitle>JoakimSoftware.TcxTool</PageTitle>
+
+<h1 class="h3 mb-0">JoakimSoftware.TcxTool</h1>
+<p class="text-muted">Parse Garmin TCX activity files, convert them to CSV, and chart a single activity.</p>
+
+<div class="row g-3 mt-2">
+    <div class="col-sm-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title h5">Convert TCX to CSV</h2>
+                <p class="card-text text-muted">Upload a Garmin TCX file and save one CSV file per activity.</p>
+                <a class="btn btn-primary" href="convert">Convert</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body" id="select-csv">
+                <h2 class="card-title h5">Select CSV File</h2>
+                <p class="card-text text-muted">Choose a CSV file converted earlier.</p>
+                @if (Current is { } current)
+                {
+                    @if (current.Status == CurrentCsvStatus.None)
+                    {
+                        <p class="card-text" id="current-csv">No CSV selected yet.</p>
+                    }
+                    else
+                    {
+                        <p class="card-text" id="current-csv">Current CSV: <strong>@current.FileName</strong>@MissingSuffix(current)</p>
+                    }
+
+                    @if (Files.Count == 0)
+                    {
+                        <p class="card-text">No CSV files yet. <a href="convert">Convert a TCX file</a></p>
+                        @* No controls, but the named form must exist, or a selection posted after the last CSV
+                           was deleted gets Blazor's bare 400 rather than the NotFound notice. *@
+                        <form method="post" @formname="@FormName" @onsubmit="OnSubmit">
+                            <AntiforgeryToken />
+                        </form>
+                    }
+                    else
+                    {
+                        <form method="post" @formname="@FormName" @onsubmit="OnSubmit">
+                            <AntiforgeryToken />
+                            <div class="mb-3">
+                                <label class="form-label" for="csv-file">CSV file</label>
+                                <select class="form-select" id="csv-file" name="CsvFilename">
+                                    <option value="" disabled selected="@(!IsListed(current))">Choose a CSV file</option>
+                                    @foreach (var file in Files)
+                                    {
+                                        <option value="@file" selected="@(file == current.FileName)">@file</option>
+                                    }
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Select</button>
+                        </form>
+                    }
+
+                    <CurrentCsvNotice Result="Selection" />
+                }
+            </div>
+        </div>
+    </div>
+</div>

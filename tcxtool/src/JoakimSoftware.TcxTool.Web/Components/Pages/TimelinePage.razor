@@ -1,0 +1,16 @@
+@page "/timeline"
+
+<PageTitle>Timeline</PageTitle>
+
+<h1 class="h3 mb-3">Timeline</h1>
+
+@if (Current is { } current)
+{
+    <StatesNotice Current="current" StatusId="timeline-status" />
+
+    @if (current.Status == CurrentStatesStatus.Loaded)
+    {
+        <TimelineHeaderCard Header="TimelineHeader.From(current.CsvFileName!, current.Rows)" />
+        <TimelineView Layout="TimelineLayout.From(current.Rows)" />
+    }
+}

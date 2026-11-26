@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+  xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+  xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Activities>
+    <Activity Sport="Biking">
+      <Id>2026-10-15T08:00:00Z</Id>
+      <Lap StartTime="2026-10-15T08:00:00Z">
+        <TotalTimeSeconds>10.0</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <Calories>12</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2026-10-15T08:00:00Z</Time>
+            <Position>
+              <LatitudeDegrees>-33.8600</LatitudeDegrees>
+              <LongitudeDegrees>151.2100</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>20.5</AltitudeMeters>
+            <DistanceMeters>0.25</DistanceMeters>
+            <HeartRateBpm>
+              <Value>110</Value>
+            </HeartRateBpm>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2026-10-15T08:00:01Z</Time>
+            <Position>
+              <LatitudeDegrees>-33.8601</LatitudeDegrees>
+              <LongitudeDegrees>151.2101</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>21.5</AltitudeMeters>
+            <DistanceMeters>7.25</DistanceMeters>
+            <HeartRateBpm>
+              <Value>111</Value>
+            </HeartRateBpm>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2026-10-15T08:00:02Z</Time>
+            <Position>
+              <LatitudeDegrees>-33.8602</LatitudeDegrees>
+              <LongitudeDegrees>151.2102</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>22.5</AltitudeMeters>
+            <DistanceMeters>14.25</DistanceMeters>
+            <HeartRateBpm>
+              <Value>112</Value>
+            </HeartRateBpm>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2026-10-15T08:00:03Z</Time>
+            <Position>
+              <LatitudeDegrees>-33.8603</LatitudeDegrees>
+              <LongitudeDegrees>151.2103</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>23.5</AltitudeMeters>
+            <DistanceMeters>21.25</DistanceMeters>
+            <HeartRateBpm>
+              <Value>113</Value>
+            </HeartRateBpm>
+          </Trackpoint>
+        </Track>
+      </Lap>
+      <Creator xsi:type="Device_t">
+        <Name>Edge 1040</Name>
+        <UnitId>555</UnitId>
+        <ProductID>9999</ProductID>
+      </Creator>
+    </Activity>
+  </Activities>
+  <Author xsi:type="Application_t">
+    <Name>Synthetic fixture</Name>
+  </Author>
+</TrainingCenterDatabase>

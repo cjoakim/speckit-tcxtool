@@ -1,0 +1,2 @@
+ActivityId|ActivityDistanceMiles|ActivityElapsedTime|ActivityElapsedSeconds|State|StateEndDate|StateEndTrackpointNum|StateTrackpointCount|StateElapsedSeconds|StateDistanceMiles|AverageHeartRateBpm|AverageRunCadence|AverageLatitude|AverageLongitude|AverageAltitudeMeters|AverageAltitudeFeet
+fractional-times|0.0074564543068480075|00:00:00|0.25|running|2026-11-01T21:30:00.250-05:00|5|5|0.25|0.0074564543068480075|102|174|0.52|0.62|2.125|6.9717847769028864

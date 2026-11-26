@@ -1,0 +1,43 @@
+@*
+    Every StateSet of the current CSV's States CSV (specs/006-activity-states/contracts/pages.md "Table"),
+    in the 16-field order of specs/007-timeline-page/contracts/states-csv-format.md (feature 007 FR-005).
+    One loop writes the rows inline, and this component has no scoped CSS (feature 005 research R4, R5).
+    The average heart rate and cadence cells take the Table page's band classes; a null class leaves
+    the class attribute out (spec FR-021).
+*@
+<div class="table-responsive states-table-scroll">
+    <table class="table table-sm table-bordered small mb-0" id="states">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">ActivityId</th>
+                <th scope="col">ActivityDistanceMiles</th>
+                <th scope="col">ActivityElapsedTime</th>
+                <th scope="col">ActivityElapsedSeconds</th>
+                <th scope="col">State</th>
+                <th scope="col">StateEndDate</th>
+                <th scope="col">StateEndTrackpointNum</th>
+                <th scope="col">StateTrackpointCount</th>
+                <th scope="col">StateElapsedSeconds</th>
+                <th scope="col">StateDistanceMiles</th>
+                <th scope="col">AverageHeartRateBpm</th>
+                <th scope="col">AverageRunCadence</th>
+                <th scope="col">AverageLatitude</th>
+                <th scope="col">AverageLongitude</th>
+                <th scope="col">AverageAltitudeMeters</th>
+                <th scope="col">AverageAltitudeFeet</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in Rows)
+            {
+                <tr><td>@row.ActivityId</td><td>@row.ActivityDistanceMiles</td><td>@row.ActivityElapsedTime</td><td>@row.ActivityElapsedSeconds</td><td>@row.State</td><td>@row.StateEndDate</td><td>@row.StateEndTrackpointNum</td><td>@row.StateTrackpointCount</td><td>@row.StateElapsedSeconds</td><td>@row.StateDistanceMiles</td><td class="@TrackpointBands.HeartRateClass(row.AverageHeartRateBpm)">@row.AverageHeartRateBpm</td><td class="@TrackpointBands.RunCadenceClass(row.AverageRunCadence)">@row.AverageRunCadence</td><td>@row.AverageLatitude</td><td>@row.AverageLongitude</td><td>@row.AverageAltitudeMeters</td><td>@row.AverageAltitudeFeet</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    /// <summary>The rows, in file order.</summary>
+    [Parameter, EditorRequired]
+    public IReadOnlyList<StatesCsvRow> Rows { get; set; } = default!;
+}

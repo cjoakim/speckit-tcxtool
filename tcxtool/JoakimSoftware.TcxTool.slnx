@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/JoakimSoftware.TcxTool.Parser/JoakimSoftware.TcxTool.Parser.csproj" />
+    <Project Path="src/JoakimSoftware.TcxTool.Web/JoakimSoftware.TcxTool.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/JoakimSoftware.TcxTool.Tests/JoakimSoftware.TcxTool.Tests.csproj" />
+  </Folder>
+</Solution>

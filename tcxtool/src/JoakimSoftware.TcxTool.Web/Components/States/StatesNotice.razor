@@ -1,0 +1,49 @@
+@*
+    The notices of the States and Timeline pages (specs/007-timeline-page/contracts/pages.md
+    "StatesNotice", research.md R14): the feature 006 markup and text for every status except Loaded,
+    with the id the page passes in. Loaded renders nothing.
+*@
+@switch (Current.Status)
+{
+    case CurrentStatesStatus.NoCurrentCsv:
+        <div class="alert alert-info" id="@StatusId" role="status">
+            <p class="mb-0">@Message(Current.Status) <a href="">Select a CSV file</a> or <a href="convert">convert a TCX file</a>.</p>
+        </div>
+        break;
+    case CurrentStatesStatus.NoStatesCsv:
+        <div class="alert alert-warning" id="@StatusId" role="alert">
+            <p class="mb-0">@Message(Current.Status) <strong>@Current.CsvFileName</strong>. <a href="convert">Convert its TCX file again</a>.</p>
+        </div>
+        break;
+    case CurrentStatesStatus.Missing:
+    case CurrentStatesStatus.WrongFormat:
+        <div class="alert alert-warning" id="@StatusId" role="alert">
+            <p class="mb-0">@Message(Current.Status) <strong>@Current.StatesFileName</strong>. <a href="convert">Convert its TCX file again</a>.</p>
+        </div>
+        break;
+    case CurrentStatesStatus.Unreadable:
+        <div class="alert alert-warning" id="@StatusId" role="alert">
+            <p class="mb-0">@Message(Current.Status) <strong>@Current.StatesFileName</strong>.</p>
+        </div>
+        break;
+    case CurrentStatesStatus.NoStateSets:
+        <div class="alert alert-info" id="@StatusId" role="status">
+            <p class="mb-0">@Message(Current.Status)</p>
+        </div>
+        break;
+    case CurrentStatesStatus.Loaded:
+    default:
+        break;
+}
+
+@code {
+    /// <summary>The loader's result.</summary>
+    [Parameter, EditorRequired]
+    public CurrentStates Current { get; set; } = default!;
+
+    /// <summary>The id of the alert: <c>states-status</c> or <c>timeline-status</c>.</summary>
+    [Parameter, EditorRequired]
+    public string StatusId { get; set; } = default!;
+
+    private static string Message(CurrentStatesStatus status) => CurrentStatesMessages.For(status);
+}

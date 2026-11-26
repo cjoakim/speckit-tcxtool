@@ -1,0 +1,37 @@
+@* The Timeline page's header card (specs/007-timeline-page/contracts/pages.md "Header card"), the
+   same Bootstrap card as the Table page's Activity box (research.md R13). *@
+<div class="card mb-3">
+    <div class="card-body" id="timeline-summary">
+        <h2 class="card-title h5">Activity</h2>
+        <dl class="row mb-0">
+            @foreach (var (label, value) in Values)
+            {
+                <dt class="col-sm-3">@label</dt>
+                @* An empty value is a muted dash, so its label never stands alone. *@
+                <dd class="col-sm-9">@if (value.Length == 0)
+                    {
+                        <span class="text-muted">—</span>
+                    }
+                    else
+                    {
+                        @value
+                    }</dd>
+            }
+        </dl>
+    </div>
+</div>
+
+@code {
+    /// <summary>The values to show.</summary>
+    [Parameter, EditorRequired]
+    public TimelineHeader Header { get; set; } = default!;
+
+    private (string Label, string Value)[] Values =>
+    [
+        ("CSV file", Header.FileName),
+        ("ActivityId", Header.ActivityId),
+        ("Date", Header.Date),
+        ("ActivityDistanceMiles", Header.ActivityDistanceMiles),
+        ("ActivityElapsedTime", Header.ActivityElapsedTime),
+    ];
+}

@@ -1,0 +1,33 @@
+# Source control and editor/OS noise
+.git
+.gitignore
+.DS_Store
+**/.DS_Store
+.vs
+.vscode
+.idea
+
+# Build outputs and test results
+**/bin
+**/obj
+**/TestResults
+
+# Sample activity exports: never part of a build or an image (Principle VI)
+data/
+
+# Spec Kit and documentation: not needed to build or test
+specs/
+docs/
+.specify/
+.claude/
+
+# Local secrets
+*.env
+.env*
+**/secrets*
+**/*.pfx
+**/appsettings.*.local.json
+
+# Application state (feature 004, FR-021): machine-local, never part of a build or an image
+tcxtool-state.json
+**/tcxtool-state.json
