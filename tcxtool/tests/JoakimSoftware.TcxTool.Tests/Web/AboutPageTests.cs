@@ -72,7 +72,7 @@ public partial class AboutPageTests : BunitContext
             ("spec-kit @ GitHub", "https://github.com/github/spec-kit"),
             ("Spec-Kit Quickstart", "https://github.github.io/spec-kit/quickstart.html"),
             ("specify-cli @ PyPI", "https://pypi.org/project/specify-cli/"),
-            ("GitHub repo for this project", "https://github.com/cjoakim/cj-speckit-explore"));
+            ("GitHub repo for this project", "https://github.com/cjoakim/speckit-tcxtool"));
     }
 
     [Fact]

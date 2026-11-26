@@ -80,7 +80,6 @@
                 **/coverage/,
                 **/htmlcov/,
                 **/include/,
-                **/lib/,
                 **/log/,
                 **/man/,
                 **/node_modules/,

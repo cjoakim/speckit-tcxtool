@@ -272,7 +272,7 @@ Feature 007 added the Timeline page:
 
 ## Repository layout
 
-- The git repository root is the parent directory, `cj-speckit-explore/`.
+- The git repository root is the parent directory, `speckit-tcxtool/`.
   This project lives in its `tcxtool/` subdirectory. Run git commands with
   that in mind.
 - `data/tcx/` holds real Garmin activity exports (about 13 to 15 MB each).
